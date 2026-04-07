@@ -244,6 +244,20 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 
 ---
 
+## CV Generation Rule (MANDATORY)
+
+Before generating ANY CV or cover letter PDF, the system MUST:
+1. Read `modes/resume-gates.md`
+2. Read `modes/evidence-ledger.md`
+3. Read `modes/cover-letter.md` (for cover letters)
+4. After HTML generation, run: `node validate-cv.mjs <html-file> --cv-source=cv.md --evidence=article-digest.md`
+5. Only generate PDF after `validate-cv.mjs` returns 0 failures
+6. Maximum 3 fix-validate cycles before flagging to user
+
+This ensures the gates are loaded even if the specific mode files aren't in context for that session.
+
+---
+
 ## Stack and Conventions
 
 - Node.js (mjs modules), Playwright (PDF + scraping), YAML (config), HTML/CSS (template), Markdown (data), Canva MCP (optional visual CV)
