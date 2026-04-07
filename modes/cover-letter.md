@@ -45,8 +45,8 @@ If any check fails, rewrite the affected paragraph from scratch. Do not patch in
 ### Writing Principles
 
 1. **Lead with action, not setup.**
-   - BAD: "During a routine DOJ team call, I mentioned my Georgetown graduate specialization in emerging technology and AI."
-   - GOOD: "I mentioned my Georgetown AI coursework on a team call, offhand, not expecting much."
+   - BAD: "During a routine team call, I mentioned my graduate specialization in emerging technology."
+   - GOOD: "I mentioned my AI coursework on a team call, offhand, not expecting much."
 
 2. **Cut the windup. Punch lands faster.**
    - BAD: "He invited me to what he thought would be a brief consultation, but within 20 minutes he was so engaged that he cleared my schedule for the rest of the day."
@@ -101,7 +101,7 @@ Use the same visual design as the CV (same fonts, header, gradient).
    |-----------------|-------------|
    | (from JD) | (from Evidence Ledger — specific metrics and facts) |
 
-3. **Differentiator paragraph:** What makes Connor different from other candidates for THIS specific role. Usually: "I don't just [manage/advise/govern] — I [build/deploy/create]."
+3. **Differentiator paragraph:** What makes you different from other candidates for THIS specific role. Usually: "I don't just [manage/advise/govern] — I [build/deploy/create]."
 
 4. **Closing:** Availability, location, invitation to discuss. No "I look forward to hearing from you."
 
@@ -127,15 +127,16 @@ For each story, provide:
 
 ### Red Flag Response Scripts
 
-Prepare responses for predictable concerns:
+Prepare responses for YOUR predictable concerns. Common categories:
 
-| Red Flag | Script |
-|----------|--------|
-| "Why did you leave DOJ?" | "Got caught up in DOGE layoffs occurring at that time." |
-| "You don't have a CS degree" | "My path was governance-first — Georgetown Security Studies gave me the risk framework, and I built technical depth independently through DocForge, MetricsFlow, and ResForge." |
-| "You can't code" | "I design systems and specify requirements — DocForge's 10-agent architecture was my design, and I built MetricsFlow's evaluation harness. I work with engineers, not instead of them." |
-| "Your governance experience is one project" | "One enterprise project (53K org, 33 specialists, NIST/ISO) plus three independent AI systems I built to understand the technology I'm governing." |
-| "No SaaS/private sector experience" | "My stakeholders were international law enforcement officials and IMF executives — high-stakes, complex needs. The domain changes; the delivery muscle is identical." |
+| Red Flag Type | Script Structure |
+|---------------|-----------------|
+| Short tenure | "The role was [contract/project-based]. During that time I [key achievement]. I'm looking for [what's next]." |
+| Career change | "My path was [origin] — [what gave you the new skill]. The domain changes; the [transferable skill] doesn't." |
+| Missing technical skill | "I [what you DO do] — [project that proves adjacent capability]. I work with [specialists], not instead of them." |
+| Gap in employment | "[Brief honest reason]. During that time I [productive activity]." |
+| Overqualification | "I'm choosing this level because [genuine reason]. [Specific thing about THIS role that appeals]." |
+| Limited industry experience | "My stakeholders were [your actual stakeholders]. The domain changes; the [core skill] is identical." |
 
 ### Story Bank Integration
 

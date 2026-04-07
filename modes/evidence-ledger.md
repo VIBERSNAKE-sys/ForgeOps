@@ -1,6 +1,6 @@
 # Evidence Ledger Protocol — Integrated from ResForge Module 1
 
-<!-- Maps JD requirements to verified evidence from article-digest.md and Q&A Archive.
+<!-- Maps JD requirements to verified evidence from article-digest.md.
      Run this mapping BEFORE drafting any CV bullets. -->
 
 ## When This File Applies
@@ -11,21 +11,21 @@ traces to a real accomplishment.
 
 ## CRITICAL: Two-Track Workflow Rule
 
-**For priority targets using ResForge:** Do NOT use career-ops's Evidence Ledger as a
-shortcut for Module 1. ResForge's Module 1 must build its own Ledger from the Q&A Archive
-with full provenance (archive citation, role-boundary enforcement, exposure-to-evidence
-promotion lock). The provenance chain is what prevents metric fabrication and role
-misattribution.
+If you use a separate high-quality prompt system (like ResForge) for priority targets,
+do NOT use ForgeOps's Evidence Ledger as a shortcut. The priority system must build
+its own Ledger from your evidence base with full provenance (citation, role-boundary
+enforcement, exposure-to-evidence promotion lock). The provenance chain is what prevents
+metric fabrication and role misattribution.
 
-**What career-ops CAN hand off to ResForge:**
-- JD parsing (MUST/LIKELY_MUST/ADVISORY classification) — saves Module 1 Step 1
-- Evaluation score and Go/No-Go verdict — saves Module 0
-- STAR stories — inform Phase B answers
+**What ForgeOps CAN hand off:**
+- JD parsing (MUST/LIKELY_MUST/ADVISORY classification)
+- Evaluation score and Go/No-Go verdict
+- STAR stories
 
-**What career-ops CANNOT shortcut:**
-- Evidence Ledger construction — Module 1 must build this from Q&A Archive directly
-- Provenance verification — every metric needs a citable archive source with Role: tag
-- Exposure-to-Evidence promotion decisions — Module 1's rules, not career-ops's
+**What ForgeOps CANNOT shortcut:**
+- Evidence Ledger construction — must be built from article-digest.md directly
+- Provenance verification — every metric needs a citable source with role boundary
+- Exposure-to-Evidence promotion decisions
 
 ## Evidence Ledger Structure
 
@@ -34,20 +34,18 @@ For each JD requirement (classified as MUST, LIKELY_MUST, ADVISORY, or SOFT):
 ```
 | # | Requirement | Classification | Evidence Source | Evidence | Class | Gap? |
 |---|-------------|---------------|----------------|----------|-------|------|
-| 1 | (JD text) | MUST | article-digest.md: DOJ Dashboard | 40% reduction, 12 RAs, 12 days | E | No |
+| 1 | (JD text) | MUST | article-digest.md: [Role] [Project] | [metric] | E | No |
 | 2 | (JD text) | MUST | (none found) | — | — | YES |
 ```
 
 ## Evidence Classification Rules
 
-**Evidence-class (E):** Connor personally executed, owned, or directly measured the outcome.
-- DOJ: automation squad co-leadership, AI governance security sections, program delivery coordination
-- IMF: Teams/SharePoint training design and rollout, Board Registration Matrix, onboarding SOPs
-- Projects: DocForge architecture design, MetricsFlow evaluation framework design, ResForge system design
+**Evidence-class (E):** You personally executed, owned, or directly measured the outcome.
 
-**Exposure-class (X):** Connor participated, supported, or observed without sole ownership.
-- DOJ: dashboard build (IT built it; Connor defined requirements), AI governance framework (33 specialists)
-- IMF: country program budgets (completely uninvolved in budgetary aspects)
+**Exposure-class (X):** You participated, supported, or observed without sole ownership.
+
+Define your Evidence vs. Exposure classifications in `article-digest.md` for each
+accomplishment. This determines which verb tier (DELIVER vs. COORDINATE) is appropriate.
 
 ## Sole-Source Rule
 
@@ -56,13 +54,11 @@ from two different roles.
 
 ## Reframing Decisions
 
-When JD language doesn't match Connor's exact experience, decide:
+When JD language doesn't match your exact experience, decide:
 
 | JD Phrase | Proposed Variant | Honest? | Decision |
 |-----------|-----------------|---------|----------|
-| "client management" | "external stakeholder management" | Yes — 45+ international officials | APPROVED |
-| "SaaS deployment" | "technology deployment" | Weak — Teams/SharePoint is not SaaS | FLAG |
-| "Python development" | "system design" | No — cannot code Python | REJECTED |
+| (example) | (your equivalent) | Defensible in interview? | APPROVED / FLAG / REJECTED |
 
 **Honesty test:** "Could I defend this connection in an interview without BS?"
 
@@ -70,39 +66,31 @@ When JD language doesn't match Connor's exact experience, decide:
 
 When a MUST requirement has no evidence:
 
-1. **Hard blocker?** Would the employer screen out without this? Check: Is it under "Required" header with years specified?
-2. **Adjacent experience?** Can Connor demonstrate a related capability? (Check article-digest.md)
-3. **Portfolio project?** Does DocForge, MetricsFlow, or ResForge cover this gap?
+1. **Hard blocker?** Would the employer screen out without this?
+2. **Adjacent experience?** Can you demonstrate a related capability?
+3. **Portfolio project?** Does an independent project cover this gap?
 4. **Mitigation plan:** Specific phrase for cover letter, or note gap in evaluation scoring.
 
-## Connor-Specific Evidence Boundaries (from Q&A Archive Part 2)
+## User-Specific Evidence Boundaries
 
-**NEVER present qualitative observations as quantified metrics:**
-- "~30% faster approvals" at IMF — this is observational, NOT formally measured. Say "streamlined approvals" not "reduced by ~30%"
-- Any metric marked "CANNOT claim: 'Quantified X%'" in Q&A Archive Part 2
+Define your honest limitations in `article-digest.md` under "Confirmed Gaps."
+The system reads these before drafting to prevent false claims.
 
-**NEVER misattribute evidence across roles:**
-- "25 concurrent assignments" belongs to IMF Lead Division Coordinator, NOT IMF Staff Coordinator
-- Always check the `Role:` field in Q&A Archive entries
+Your gaps list should include:
+- Skills you do NOT have professionally
+- Tools you have NOT used in production
+- Experience types you CANNOT honestly claim
+- Metrics that are observational, not formally measured (note the caveat)
 
-**NEVER delete roles to save space:**
-- ALL roles from cv.md must appear. Compress to 1 bullet minimum. Deletion creates employment gaps.
+**NEVER present qualitative observations as quantified metrics.**
+If your evidence says "observed" or "not formally measured," do NOT put it as
+a number in a bullet. Rephrase as qualitative outcome.
 
-**NEVER claim in any CV bullet:**
-- Python coding/development ability (AI runs the code)
-- Professional AI tool deployment (laid off before deployment)
-- Budget ownership or forecasting (tracking actuals only at DOJ; none at IMF)
-- Cloud platform professional experience (AWS, Azure, GCP)
-- SQL, TypeScript, or frontend development
-- Formal product manager title or product development experience
-- CRM/ATS/Jira/Confluence experience
-- B2B/commercial stakeholder experience
-- Formal risk register or issues log usage
-- Performance reviews, structured coaching, or career development plans
+**NEVER misattribute evidence across roles.**
+Check which role each metric belongs to. Respect role boundaries.
 
-**ALWAYS verify before finalizing:** Cross-check every bullet against the gaps above.
-If a JD requires something on this list, note it as a gap with mitigation strategy,
-or recommend SKIP if it's a hard blocker.
+**NEVER delete roles to save space.**
+ALL roles from cv.md must appear. Compress to 1 bullet minimum. Deletion creates employment gaps.
 
 ## Go/No-Go Decision
 
@@ -114,4 +102,4 @@ After building the Evidence Ledger:
 | **CONDITIONAL** | Evidence for 50-69% of MUSTs; gaps are mitigatable or ADVISORY |
 | **NO-GO** | Evidence for <50% of MUSTs; multiple hard blockers with no mitigation |
 
-If NO-GO, recommend against applying (per career-ops ethical use guidelines).
+If NO-GO, recommend against applying (per ForgeOps ethical use guidelines).
