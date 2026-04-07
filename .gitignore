@@ -31,7 +31,6 @@ node_modules/
 *.mov
 *.mp4
 
-# Claude Code local
-.claude/settings.local.json
-.claude/memory/
+# Claude Code local (includes memory files with personal data)
+.claude/
 career-dashboard

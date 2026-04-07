@@ -1,9 +1,8 @@
 # Resume Quality Gates — Integrated from ResForge Modules 1-3
 
-<!-- Adapted from Connor Kinsella's 4-module ResForge prompt system (28,000+ words).
-     Original modules: Module 1 (JD Ingestion), Module 2 (D1 Drafting), Module 3 (D2 Generation).
-     This file distills the gate logic for career-ops' automated CV pipeline.
-     Source: /Users/connorkinsella/Desktop/Job Application Documents/Module {1-4} v2.docx -->
+<!-- Adapted from the ResForge prompt system.
+     This file distills the gate logic for ForgeOps' automated CV pipeline.
+     See ATTRIBUTION in README.md for credits. -->
 
 ## When This File Applies
 
@@ -75,11 +74,11 @@ For EVERY metric or number that will appear in the CV:
 3. Check Q&A Archive Part 2 for caveats (e.g., "CANNOT claim: 'Quantified X%'")
 4. If a metric is observational/qualitative, do NOT present it as a quantified metric
 
-**Fabrication test:** For each number in a bullet, ask: "If the interviewer says 'tell me about that number,' can Connor give a specific, defensible answer?"
+**Fabrication test:** For each number in a bullet, ask: "If the interviewer says 'tell me about that number,' can the candidate give a specific, defensible answer?"
 
-**Role attribution test:** For each claim, verify the role header matches where the evidence actually occurred. The Q&A Archive specifies `Role:` for every entry — respect it.
+**Role attribution test:** For each claim, verify the role header matches where the evidence actually occurred. Check `article-digest.md` role headers — respect the role boundary.
 
-**Qualitative metric rule:** If the Q&A Archive says "observed" or "qualitative" or "CANNOT claim quantified," the number CANNOT appear as a metric in a bullet. Rephrase as qualitative outcome (e.g., "streamlined approvals" not "reduced approval times by ~30%").
+**Qualitative metric rule:** If the evidence source says "observed" or "qualitative" or "not formally measured," the number CANNOT appear as a quantified metric in a bullet. Rephrase as qualitative outcome (e.g., "streamlined approvals" not "reduced approval times by ~30%").
 
 **Employment Continuity (MANDATORY):**
 ALL roles from the original `cv.md` MUST appear in every tailored CV. Compression to 1 bullet is allowed. Deletion is NEVER allowed. Missing roles create employment gaps that trigger recruiter and background check flags.
@@ -118,10 +117,14 @@ ALL roles from the original `cv.md` MUST appear in every tailored CV. Compressio
 
 For each TOP2 bullet, verify: What is the primary deliverable? Who produced it per Evidence Ledger? Does the verb tier match?
 
-**Connor-specific rules (from Q&A Archive gaps):**
-- Dashboard: Connor co-led/co-owned. IT built it. Use COORDINATE verbs, not DELIVER.
-- AI Governance Framework: 33 specialists contributed. Connor authored security sections. Use DELIVER for his sections, COORDINATE for the whole framework.
-- Python tools in DocForge: AI wrote the code. Connor designed and specified. Use "Designed," "Architected," not "Built" or "Developed" for code artifacts.
+**User-specific framing rules:**
+See `modes/_profile.md` for your personal framing ladder overrides.
+Define these based on your own projects where ownership is shared.
+
+Example:
+- Dashboard project: COORDINATE verbs (engineering built it; I defined requirements)
+- Training program: DELIVER verbs (I designed and delivered the sessions)
+- Open-source tool: DELIVER for system design; COORDINATE if AI wrote the code
 
 ## Gate 2: Banned Phrases
 
@@ -274,7 +277,7 @@ For each metric in a bullet, verify the phrasing preserves what went up versus w
 
 Add to Gate 4 (Evidence Integrity):
 
-Do NOT aggregate, sum, average, or combine two or more numeric facts into a single new metric. Do NOT convert category counts into composite totals. Do NOT imply shared denominators unless the user explicitly asserts that binding. Each metric from article-digest.md must remain atomic unless Connor explicitly approves combination.
+Do NOT aggregate, sum, average, or combine two or more numeric facts into a single new metric. Do NOT convert category counts into composite totals. Do NOT imply shared denominators unless the user explicitly asserts that binding. Each metric from article-digest.md must remain atomic unless the user explicitly approves combination.
 
 ## Within-Role Deduplication
 
