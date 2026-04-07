@@ -1,4 +1,4 @@
-# Career-Ops
+# ForgeOps
 
 [English](README.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [한국어](README.ko-KR.md) | [日本語](README.ja.md) | [Русский](README.ru.md) | [繁體中文](README.zh-TW.md)
 
@@ -32,85 +32,85 @@
   <img src="https://img.shields.io/badge/ZH--TW-blue?style=flat" alt="ZH-TW">
 </p>
 
----
+**career-ops + ResForge quality gates = mechanically enforced CV generation**
 
-<p align="center">
-  <img src="docs/demo.gif" alt="Career-Ops Demo" width="800">
-</p>
+ForgeOps is a fork of [career-ops](https://github.com/santifer/career-ops) that adds resume quality gates, evidence integrity enforcement, and a mechanical validation script. Career-ops gives you speed. ResForge gives you rigor. ForgeOps gives you both.
+
+## What's Different from career-ops
+
+| Feature | career-ops | ForgeOps |
+|---------|-----------|----------|
+| CV quality control | LLM judgment only | `validate-cv.mjs` blocks PDF on failures + 8 gates in `resume-gates.md` |
+| Evidence integrity | No verification | Evidence Ledger protocol, fabrication test, role attribution check |
+| Framing accuracy | No verb checking | 3-tier framing ladder (DELIVER / COORDINATE / CONTRIBUTE) |
+| Word count | Not enforced | Hard ceilings: TOP2 18-27, older 12-25, summary 75 (script-enforced) |
+| Banned phrases | Not checked | 30+ patterns: metadata leakage, defensive framing, em dashes, conceptual verbs |
+| Employment continuity | Roles could be deleted | Script blocks PDF if role count doesn't match cv.md |
+| Cover letter | 1-line spec, no template | Template with placeholders, match table format, CL-Gate 0 |
+| Metric fabrication | Not checked | Script cross-references every number against article-digest.md |
+
+## The Two-Track Strategy
 
 <p align="center"><strong>740+ job listings evaluated · 100+ personalized CVs · 1 dream role landed</strong></p>
 
 <p align="center"><a href="https://discord.gg/8pRpHETxa4"><img src="https://img.shields.io/badge/Join_the_community-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a></p>
 
+**Volume (cold applications):** ForgeOps end-to-end. Gates produce 7-7.5 quality output fast.
+
+**Priority (warm intros, high-fit roles):** ForgeOps for analysis (evaluation, JD parsing, STAR stories), then a dedicated prompt system for the CV. Produces 9+ quality output slowly.
+
 ## What Is This
 
 Career-Ops turns any AI coding CLI into a full job search command center. Instead of manually tracking applications in a spreadsheet, you get an AI-powered pipeline that:
 
-- **Evaluates offers** with a structured A-F scoring system (10 weighted dimensions)
-- **Generates tailored PDFs** -- ATS-optimized CVs customized per job description
-- **Scans portals** automatically (Greenhouse, Ashby, Lever, company pages)
-- **Processes in batch** -- evaluate 10+ offers in parallel with sub-agents
-- **Tracks everything** in a single source of truth with integrity checks
+The gate integration means the volume strategy is viable without risking interview embarrassment from fabricated metrics or missing roles.
 
-> **Important: This is NOT a spray-and-pray tool.** Career-ops is a filter -- it helps you find the few offers worth your time out of hundreds. The system strongly recommends against applying to anything scoring below 4.0/5. Your time is valuable, and so is the recruiter's. Always review before submitting.
+## How validate-cv.mjs Works
 
-Career-ops is agentic: Claude Code navigates career pages with Playwright, evaluates fit by reasoning about your CV vs the job description (not keyword matching), and adapts your resume per listing.
+After generating CV HTML and before converting to PDF, run:
 
-> **Heads up: the first evaluations won't be great.** The system doesn't know you yet. Feed it context -- your CV, your career story, your proof points, your preferences, what you're good at, what you want to avoid. The more you nurture it, the better it gets. Think of it as onboarding a new recruiter: the first week they need to learn about you, then they become invaluable.
+```bash
+node validate-cv.mjs output/cv.html --cv-source=cv.md --evidence=article-digest.md
+```
 
-Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. [Read the full case study](https://santifer.io/career-ops-system).
+5 mechanical checks run:
 
-## Features
+1. **Word Count Enforcement** -- every bullet counted, TOP2 vs older role ceilings enforced
+2. **Banned Phrase Scan** -- 30+ patterns including metadata leakage, defensive framing, em dashes
+3. **Employment Continuity** -- role count in output must match cv.md
+4. **Opening Verb Frequency** -- flags repeated verbs, escalates if 3+ verbs are duplicated
+5. **Metric Fabrication Guard** -- cross-references every number against article-digest.md
 
-| Feature | Description |
-|---------|-------------|
-| **Auto-Pipeline** | Paste a URL, get a full evaluation + PDF + tracker entry |
-| **6-Block Evaluation** | Role summary, CV match, level strategy, comp research, personalization, interview prep (STAR+R) |
-| **Interview Story Bank** | Accumulates STAR+Reflection stories across evaluations -- 5-10 master stories that answer any behavioral question |
-| **Negotiation Scripts** | Salary negotiation frameworks, geographic discount pushback, competing offer leverage |
-| **ATS PDF Generation** | Keyword-injected CVs with Space Grotesk + DM Sans design |
-| **Portal Scanner** | 45+ companies pre-configured (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + custom queries across Ashby, Greenhouse, Lever, Wellfound |
-| **Batch Processing** | Parallel evaluation with `claude -p` workers |
-| **Dashboard TUI** | Terminal UI to browse, filter, and sort your pipeline |
-| **Human-in-the-Loop** | AI evaluates and recommends, you decide and act. The system never submits an application -- you always have the final call |
-| **Pipeline Integrity** | Automated merge, dedup, status normalization, health checks |
+Exit codes: 0 = all pass, 1 = failures (block PDF), 2 = warnings only (proceed with review).
+
+Maximum 3 fix-validate cycles before flagging to user.
+
+## New Files (not in career-ops)
+
+| File | Purpose |
+|------|---------|
+| `validate-cv.mjs` | Mechanical gate enforcement script |
+| `modes/resume-gates.md` | Gates 0-7: evidence integrity, concrete verbs, framing ladder, banned phrases, word count, evidence placement, professional language, summary quality, verb scan, metric inversion, deduplication |
+| `modes/evidence-ledger.md` | JD-to-evidence mapping protocol with two-track workflow rule |
+| `modes/cover-letter.md` | CL-Gate 0 (voice/conviction check), writing rules, match table format, STAR+R structure |
+| `modes/resforge-tier2-backlog.md` | Future improvements not yet ported |
+| `templates/cover-letter-template.html` | Cover letter HTML template with placeholders |
+| `SETUP.md` | ForgeOps-specific setup guide |
+| `CAREER-OPS-README.md` | Original career-ops documentation |
 
 ## Quick Start
 
 ```bash
-# 1. Clone and install
-git clone https://github.com/santifer/career-ops.git
-cd career-ops && npm install
-npx playwright install chromium   # Required for PDF generation
-
-# 2. Check setup
-npm run doctor                     # Validates all prerequisites
-
-# 3. Configure
-cp config/profile.example.yml config/profile.yml  # Edit with your details
-cp templates/portals.example.yml portals.yml       # Customize companies
-
-# 4. Add your CV
-# Create cv.md in the project root with your CV in markdown
-
-# 5. Personalize with Claude
-claude   # Open Claude Code in this directory
-
-# Then ask Claude to adapt the system to you:
-# "Change the archetypes to backend engineering roles"
-# "Translate the modes to English"
-# "Add these 5 companies to portals.yml"
-# "Update my profile with this CV I'm pasting"
-
-# 6. Start using
-# Paste a job URL or run /career-ops
+git clone https://github.com/VIBERSNAKE-sys/ForgeOps.git
+cd ForgeOps && npm install
+npx playwright install chromium
 ```
 
-> **The system is designed to be customized by Claude itself.** Modes, archetypes, scoring weights, negotiation scripts -- just ask Claude to change them. It reads the same files it uses, so it knows exactly what to edit.
+Then follow [SETUP.md](SETUP.md) to configure your profile, CV, and evidence base.
 
-See [docs/SETUP.md](docs/SETUP.md) for the full setup guide.
+For the original career-ops documentation, see [CAREER-OPS-README.md](CAREER-OPS-README.md).
 
-## Usage
+## Attribution
 
 Career-ops is a single slash command with multiple modes:
 
@@ -259,6 +259,13 @@ My portfolio and other open source projects → [santifer.io](https://santifer.i
 
 See [LEGAL_DISCLAIMER.md](LEGAL_DISCLAIMER.md) for full details. This software is provided under the [MIT License](LICENSE) "as is", without warranty of any kind.
 
+## Attribution
+
+- **[career-ops](https://github.com/santifer/career-ops)** by Santiago ([@santifer](https://santifer.io)) -- scanning, evaluation, PDF pipeline, tracker, portal architecture
+- **ResForge** -- gate system, evidence ledger protocol, quality enforcement architecture, writing rules
+- **validate-cv.mjs** -- original to ForgeOps, the mechanical enforcement layer bridging both systems
+- **ForgeOps integration** built with [Claude Code](https://claude.ai/claude-code)
+
 ## Contributors
 
 <a href="https://github.com/santifer/career-ops/graphs/contributors">
@@ -269,7 +276,7 @@ Got hired using career-ops? [Share your story!](https://github.com/santifer/care
 
 ## License
 
-MIT
+MIT — Same as career-ops. See [LICENSE](LICENSE).
 
 ## Let's Connect
 
