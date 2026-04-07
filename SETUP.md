@@ -9,7 +9,7 @@
 ## 1. Clone and Install
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/ForgeOps.git
+git clone https://github.com/VIBERSNAKE-sys/ForgeOps.git
 cd ForgeOps && npm install
 npx playwright install chromium
 ```

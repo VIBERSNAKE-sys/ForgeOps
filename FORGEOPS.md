@@ -61,7 +61,7 @@ Maximum 3 fix-validate cycles before flagging to user.
 See [SETUP.md](SETUP.md) for full configuration guide. Quick start:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/ForgeOps.git
+git clone https://github.com/VIBERSNAKE-sys/ForgeOps.git
 cd ForgeOps && npm install
 npx playwright install chromium
 ```
