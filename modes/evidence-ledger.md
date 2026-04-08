@@ -38,6 +38,30 @@ For each JD requirement (classified as MUST, LIKELY_MUST, ADVISORY, or SOFT):
 | 2 | (JD text) | MUST | (none found) | — | — | YES |
 ```
 
+## Locked Metrics Table (MANDATORY)
+
+After building the Evidence Ledger, every metric that will appear on the resume
+must be locked in this table with its exact permitted phrasing. During CV generation,
+every number in every bullet must match a row in this table. Any number not in the
+table is a fabrication.
+
+```
+| # | Metric | Source (article-digest.md line) | Role | Locked Phrasing | Restriction |
+|---|--------|--------------------------------|------|-----------------|-------------|
+| 1 | 40% | DOJ Dashboard section | DOJ | "reducing manual workflows by 40%" | None |
+| 2 | ~30% approvals | IMF Teams/SharePoint section | IMF Lead | QUALITATIVE ONLY — do not quantify | Observed, not measured |
+| 3 | 95% | DOJ Program Delivery section | DOJ | "95% on-time/on-budget success rate" | Must include success definition |
+```
+
+**Restriction rules:**
+- If the evidence source describes an outcome as "observed," "estimated,"
+  "approximately," "informally measured," or "qualitative," mark the Locked
+  Phrasing as `QUALITATIVE ONLY — do not quantify`
+- If a metric has a success definition requirement (hollow metric test),
+  note it in the Restriction column
+- The Locked Phrasing column is the ONLY permitted way this number can
+  appear in a bullet. Paraphrasing that changes the meaning is not allowed.
+
 ## Evidence Classification Rules
 
 **Evidence-class (E):** You personally executed, owned, or directly measured the outcome.
