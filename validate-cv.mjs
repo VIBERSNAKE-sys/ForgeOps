@@ -345,6 +345,42 @@ function checkMetricFabrication(allText, evidenceSource) {
   return { name: 'CHECK 5: Metric Fabrication Guard', results, failures: 0, warnings };
 }
 
+function checkFillerBullets(roles) {
+  const results = [];
+  let warnings = 0;
+
+  // Past-tense verb pattern: word ending in -ed, -led, -ted, plus common irregulars
+  const pastTenseVerbs = /\b(achieved|built|co-led|co-developed|coordinated|compressed|conducted|created|delivered|deployed|designed|developed|directed|drove|established|executed|facilitated|identified|implemented|launched|led|maintained|managed|orchestrated|owned|produced|proposed|redesigned|reduced|selected|streamlined|supported)\b/gi;
+
+  // Check TOP2 roles only (first two)
+  const top2 = roles.slice(0, 2);
+
+  for (let rIdx = 0; rIdx < top2.length; rIdx++) {
+    const role = top2[rIdx];
+    for (let bIdx = 0; bIdx < role.bullets.length; bIdx++) {
+      const bullet = role.bullets[bIdx];
+
+      // Dual-verb check: two past-tense verbs separated by "and"
+      const andParts = bullet.split(/\band\b/i);
+      if (andParts.length >= 2) {
+        let verbCount = 0;
+        for (const part of andParts) {
+          const verbs = part.match(pastTenseVerbs);
+          if (verbs && verbs.length > 0) verbCount++;
+        }
+        if (verbCount >= 2) {
+          warnings++;
+          results.push(`  WARN: ${role.company} B${bIdx + 1} — dual-verb detected (two actions joined by "and"). Consider splitting.`);
+        }
+      }
+    }
+  }
+
+  if (warnings === 0) results.push('  No filler indicators detected in TOP2 bullets.');
+
+  return { name: 'CHECK 6: Filler Bullet Detection (Dual-Verb)', results, failures: 0, warnings };
+}
+
 // ── Main ──
 
 async function main() {
@@ -380,6 +416,7 @@ async function main() {
     checkEmploymentContinuity(roles, cvSource),
     checkVerbFrequency(roles),
     checkMetricFabrication(allText, evidenceSource),
+    checkFillerBullets(roles),
   ];
 
   let totalFailures = 0;

@@ -279,9 +279,47 @@ Add to Gate 4 (Evidence Integrity):
 
 Do NOT aggregate, sum, average, or combine two or more numeric facts into a single new metric. Do NOT convert category counts into composite totals. Do NOT imply shared denominators unless the user explicitly asserts that binding. Each metric from article-digest.md must remain atomic unless the user explicitly approves combination.
 
+## Metric Promotion Ban (Three Patterns)
+
+**BLOCKING.** Three specific ways metrics get fabricated through inference:
+
+**Pattern 1 — OBSERVATION TO METRIC:**
+If the evidence source describes an outcome as observed/estimated/qualitative, do NOT convert it to a quantified metric. Use qualitative language instead.
+- **Test:** Does the source use words like "observed," "estimated," "approximately," "informally measured," "qualitative"? If yes, the outcome CANNOT appear as a number in a bullet.
+- The Locked Metrics Table in `modes/evidence-ledger.md` marks these as `QUALITATIVE ONLY — do not quantify`.
+
+**Pattern 2 — REVERSE ENGINEERING:**
+Do NOT infer an unstated metric from a stated one. If the evidence says "achieved 40% reduction," do NOT infer "projected 20% reduction" as the pre-approval target. Do NOT calculate intermediate values, percentages of percentages, or implied baselines.
+- **Test:** Can you point to the EXACT line in article-digest.md where this number appears? If no, it's fabrication.
+
+**Pattern 3 — DECOMPOSITION:**
+Do NOT decompose a summary metric into sub-metrics. If the evidence says "five risk categories," do NOT invent a count of individual risks within those categories. If the evidence says "12 programs," do NOT calculate average milestones per program.
+- **Test:** Does article-digest.md contain this specific number at this specific level of detail? If it only contains the aggregate, use the aggregate.
+
 ## Within-Role Deduplication
 
 After drafting all bullets for each role, check for:
 - Repeated metrics: same number in 2+ bullets within same role
 - Repeated topics: same project/initiative in 2+ bullets within same role
 If found, CONSOLIDATE (merge strongest elements) or SUBSTITUTE (change repeated reference to descriptive text).
+
+## Filler Bullet Detection (run after all gates pass)
+
+After all gates pass, check each TOP2 bullet against five indicators.
+If 2+ match, flag as FILLER:
+
+1. **Dual-verb:** Two or more unrelated action verbs in the same bullet (e.g., "managed stakeholders and designed dashboards")
+2. **No evidence:** No metric, outcome, or scale marker present
+3. **No Critical:** Does not address any Frozen Critical from the Evidence Ledger
+4. **Generic:** Could describe any employee in a similar role (the "anyone" test)
+5. **Whitespace fill:** Was added to fill visual space rather than carry evidence
+
+**If flagged as FILLER:**
+- Replace with an evidence-carrying bullet addressing an uncovered Frozen Critical
+- Or remove entirely if no uncovered Critical remains
+- Do NOT keep filler bullets in the TOP2 window
+
+**Dual-verb test (mechanical):** If a bullet contains two past-tense verbs
+separated by "and" (e.g., "coordinated X and developed Y"), it likely
+describes two separate accomplishments crammed into one bullet. Split into
+two bullets or choose the stronger claim.
