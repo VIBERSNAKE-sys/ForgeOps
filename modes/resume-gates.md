@@ -323,3 +323,26 @@ If 2+ match, flag as FILLER:
 separated by "and" (e.g., "coordinated X and developed Y"), it likely
 describes two separate accomplishments crammed into one bullet. Split into
 two bullets or choose the stronger claim.
+
+## Project Lead Bullet JD-Relevance Check
+
+After compressing projects into lead bullet + detail bullets format, verify
+that each project's lead bullet contains the highest-priority Frozen Critical
+signal available in that project. The lead bullet is what a 6-second recruiter
+skim captures. If the highest-JD-value content is buried in a detail bullet,
+it functionally disappears.
+
+**For each project, check:**
+1. Which Frozen Critical does the lead bullet address?
+2. Is there a higher-priority Critical available in the detail bullets or source evidence?
+3. If the lead already contains the highest-priority signal: **PASS**
+4. If a higher-priority signal is buried: **PROPOSE a reorder to the user** — do NOT automatically rewrite
+
+**Critical constraints:**
+- This check proposes REORDERING of existing content, not REWRITING. The evidence,
+  metrics, and phrasing from compression are locked.
+- If surfacing a Critical requires rewriting the bullet rather than reordering, flag
+  this to the user as a separate rewrite proposal.
+- If a reorder moves a bullet into the lead position, re-verify framing ladder accuracy
+  on the new lead — a COORDINATE verb in a detail bullet is acceptable but may read
+  wrong in the lead position.
